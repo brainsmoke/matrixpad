@@ -1,0 +1,28 @@
+
+== Capacitive Touch Matrix Numpad For an Atmega328p ==
+
+
+== Files ==
+
+- src/*        source code
+- pcb/*        board & schematics
+
+== Technical Background ==
+
+- Excellent technical description by Viacheslav Slavinsky:
+
+  http://svo.2.staticpublic.s3-website-us-east-1.amazonaws.com/capsensor/index.en.html
+
+- QMatrix Whitepaper:
+
+  http://www.atmel.com/dyn/resources/prod_documents/qmatrix_white_paper_100.pdf
+
+== PCB Design guidelines ==
+
+- Moisture Tolerant QTouch Design:
+
+  http://www.atmel.com/images/doc42017.pdf
+
+- QTouch Schematic and Layout Checklist:
+
+  http://www.atmel.com/Images/Atmel-42094-QTouch-Schematic-and-Layout-Checklist_Application-Note_AT02259.pdf
