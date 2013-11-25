@@ -287,11 +287,8 @@ int main(void)
 				uint16_t *b = &baseline[y][x];
 				uint8_t *p = &pressed[y][x];
 
-				if (v < (*b>>4)-(*b>>8) )
+				if (*p && v < (*b>>4)-(*b>>9))
 				{
-					if (*p == 0)
-						touch_callback(x, y);
-
 					if (*p > 100)
 					{
 						*b -= *b>>4;
@@ -299,6 +296,11 @@ int main(void)
 					}
 					else
 						*p += 1;
+				}
+				else if (*p == 0 && v < (*b>>4)-(*b>>8) )
+				{
+					touch_callback(x, y);
+					*p += 1;
 				}
 				else
 				{
