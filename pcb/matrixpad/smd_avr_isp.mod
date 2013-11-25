@@ -1,0 +1,65 @@
+PCBNEW-LibModule-V1  Sat 02 Nov 2013 04:05:43 PM CET
+# encoding utf-8
+$INDEX
+smd_pin_array_3x2
+$EndINDEX
+$MODULE smd_pin_array_3x2
+Po 0 0 0 15 527514BA 52751487 ~~
+Li smd_pin_array_3x2
+Cd Double rangee de contacts 2 x 4 pins
+Kw CONN
+Sc 52751487
+AR /526D06EF
+Op 0 0 0
+T0 0 -1500 400 400 0 80 N I 21 N "CON1"
+T1 0 1500 400 400 0 80 N I 21 N "AVR-ISP-6"
+$PAD
+Sh "1" R 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 2 "MISO"
+Po -1000 500
+$EndPAD
+$PAD
+Sh "2" C 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 6 "VCC"
+Po -1000 -500
+$EndPAD
+$PAD
+Sh "3" C 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 5 "SCK"
+Po 0 500
+$EndPAD
+$PAD
+Sh "4" C 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 3 "MOSI"
+Po 0 -500
+$EndPAD
+$PAD
+Sh "5" C 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 4 "RST"
+Po 1000 500
+$EndPAD
+$PAD
+Sh "6" C 600 600 0 0 0
+Dr 0 0 0
+At SMD N 00888000
+Ne 1 "GND"
+Po 1000 -500
+$EndPAD
+$SHAPE3D
+Na "pin_array/pins_array_3x2.wrl"
+Sc 1.000000 1.000000 1.000000
+Of 0.000000 0.000000 0.000000
+Ro 0.000000 0.000000 0.000000
+$EndSHAPE3D
+$EndMODULE  smd_pin_array_3x2
+$EndLIBRARY

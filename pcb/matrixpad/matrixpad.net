@@ -1,0 +1,342 @@
+# EESchema Netlist Version 1.1 created  Mon 25 Nov 2013 07:20:16 PM CET
+(
+ ( /5274E89C $noname  R1 10K {Lib=R}
+  (    1 RST )
+  (    2 VCC )
+ )
+ ( /5274E843 $noname  C2 100nF {Lib=C}
+  (    1 VCC )
+  (    2 GND )
+ )
+ ( /5274E83B $noname  C1 1uF {Lib=C}
+  (    1 VCC )
+  (    2 GND )
+ )
+ ( /5274DC32 $noname  P1 CONN_4 {Lib=CONN_4}
+  (    1 VCC )
+  (    2 TX )
+  (    3 RX )
+  (    4 GND )
+ )
+ ( /526D06EF AVR-ISP-6  CON1 AVR-ISP-6 {Lib=AVR-ISP-6}
+  (    1 MISO )
+  (    2 VCC )
+  (    3 SCK )
+  (    4 MOSI )
+  (    5 RST )
+  (    6 GND )
+ )
+ ( /5264565C $noname  RSMP2 470K {Lib=R}
+  (    1 Y2B )
+  (    2 SMP )
+ )
+ ( /5264565B $noname  Cs2 4.7nF {Lib=C}
+  (    1 Y2A )
+  (    2 Y2B )
+ )
+ ( /5264565A $noname  RY2 4.7K {Lib=R}
+  (    1 N-000012 )
+  (    2 Y2A )
+ )
+ ( /52645659 $noname  Y2PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000012 )
+ )
+ ( /52645632 $noname  Y1PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000013 )
+ )
+ ( /52645631 $noname  RY1 4.7K {Lib=R}
+  (    1 N-000013 )
+  (    2 Y1A )
+ )
+ ( /52645630 $noname  Cs1 4.7nF {Lib=C}
+  (    1 Y1A )
+  (    2 Y1B )
+ )
+ ( /5264562F $noname  RSMP1 470K {Lib=R}
+  (    1 Y1B )
+  (    2 SMP )
+ )
+ ( /526455A4 $noname  RSMP0 470K {Lib=R}
+  (    1 Y0B )
+  (    2 SMP )
+ )
+ ( /52645565 $noname  Cs0 4.7nF {Lib=C}
+  (    1 Y0A )
+  (    2 Y0B )
+ )
+ ( /526454D6 $noname  X2PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000005 )
+ )
+ ( /526454D5 $noname  RX2 4.7K {Lib=R}
+  (    1 N-000005 )
+  (    2 X2 )
+ )
+ ( /526454D4 $noname  RX1 4.7K {Lib=R}
+  (    1 N-000008 )
+  (    2 X1 )
+ )
+ ( /526454D3 $noname  X1PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000008 )
+ )
+ ( /526454C9 $noname  X3PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000009 )
+ )
+ ( /526454C8 $noname  RX3 4.7K {Lib=R}
+  (    1 N-000009 )
+  (    2 MOSI )
+ )
+ ( /5264547A $noname  RY0 4.7K {Lib=R}
+  (    1 N-000028 )
+  (    2 Y0A )
+ )
+ ( /5264545B $noname  RX0 4.7K {Lib=R}
+  (    1 N-000029 )
+  (    2 X0 )
+ )
+ ( /526453C1 $noname  Y0PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000028 )
+ )
+ ( /526453B4 $noname  X0PAD1 CONN_1 {Lib=CONN_1}
+  (    1 N-000029 )
+ )
+ ( /52644BAB TQFP32  IC1 ATMEGA328P-A {Lib=ATMEGA328P-A}
+  (    1 ? )
+  (    2 ? )
+  (    3 GND )
+  (    4 VCC )
+  (    5 GND )
+  (    6 VCC )
+  (    7 ? )
+  (    8 ? )
+  (    9 ? )
+  (   10 GND )
+  (   11 SMP )
+  (   12 X0 )
+  (   13 X1 )
+  (   14 X2 )
+  (   15 MOSI )
+  (   16 MISO )
+  (   17 SCK )
+  (   18 VCC )
+  (   19 ? )
+  (   20 ? )
+  (   21 GND )
+  (   22 ? )
+  (   23 Y0A )
+  (   24 Y0B )
+  (   25 Y1B )
+  (   26 Y1A )
+  (   27 Y2A )
+  (   28 Y2B )
+  (   29 RST )
+  (   30 RX )
+  (   31 TX )
+  (   32 ? )
+ )
+)
+*
+{ Allowed footprints by component:
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component RSMP2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component Cs2
+ SM*
+ C?
+ C1-1
+$endlist
+$component RY2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RY1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component Cs1
+ SM*
+ C?
+ C1-1
+$endlist
+$component RSMP1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RSMP0
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component Cs0
+ SM*
+ C?
+ C1-1
+$endlist
+$component RX2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RX1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RX3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RY0
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component RX0
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 1 "Y1A" "Y1A"
+ RY1 2
+ Cs1 1
+ IC1 26
+Net 2 "Y1B" "Y1B"
+ IC1 25
+ RSMP1 1
+ Cs1 2
+Net 3 "SMP" "SMP"
+ RSMP2 2
+ IC1 11
+ RSMP1 2
+ RSMP0 2
+Net 4 "Y0B" "Y0B"
+ IC1 24
+ RSMP0 1
+ Cs0 2
+Net 5 "" ""
+ RX2 1
+ X2PAD1 1
+Net 6 "X2" "X2"
+ RX2 2
+ IC1 14
+Net 7 "X1" "X1"
+ RX1 2
+ IC1 13
+Net 8 "" ""
+ X1PAD1 1
+ RX1 1
+Net 9 "" ""
+ X3PAD1 1
+ RX3 1
+Net 10 "MOSI" "MOSI"
+ IC1 15
+ CON1 4
+ RX3 2
+Net 11 "Y2A" "Y2A"
+ IC1 27
+ Cs2 1
+ RY2 2
+Net 12 "" ""
+ Y2PAD1 1
+ RY2 1
+Net 13 "" ""
+ RY1 1
+ Y1PAD1 1
+Net 18 "RX" "RX"
+ IC1 30
+ P1 3
+Net 19 "TX" "TX"
+ IC1 31
+ P1 2
+Net 22 "MISO" "MISO"
+ IC1 16
+ CON1 1
+Net 23 "SCK" "SCK"
+ IC1 17
+ CON1 3
+Net 25 "RST" "RST"
+ IC1 29
+ R1 1
+ CON1 5
+Net 26 "Y0A" "Y0A"
+ Cs0 1
+ RY0 2
+ IC1 23
+Net 27 "X0" "X0"
+ IC1 12
+ RX0 2
+Net 28 "" ""
+ RY0 1
+ Y0PAD1 1
+Net 29 "" ""
+ X0PAD1 1
+ RX0 1
+Net 30 "GND" "GND"
+ C1 2
+ P1 4
+ C2 2
+ IC1 21
+ IC1 10
+ CON1 6
+ IC1 5
+ IC1 3
+Net 33 "VCC" "VCC"
+ CON1 2
+ P1 1
+ IC1 4
+ C1 1
+ C2 1
+ R1 2
+ IC1 18
+ IC1 6
+Net 34 "Y2B" "Y2B"
+ IC1 28
+ RSMP2 1
+ Cs2 2
+}
+#End

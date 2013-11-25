@@ -1,0 +1,185 @@
+Cmp-Mod V01 Genere par PcbNew le Sat 02 Nov 2013 03:54:22 PM CET
+
+BeginCmp
+TimeStamp = /5274E83B;
+Reference = C1;
+ValeurCmp = C;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5274E843;
+Reference = C2;
+ValeurCmp = C;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526D06EF;
+Reference = CON1;
+ValeurCmp = AVR-ISP-6;
+IdModule  = pin_array_3x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /52645565;
+Reference = Cs0;
+ValeurCmp = C;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /52645630;
+Reference = Cs1;
+ValeurCmp = C;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264565B;
+Reference = Cs2;
+ValeurCmp = C;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /52644BAB;
+Reference = IC1;
+ValeurCmp = ATMEGA328P-A;
+IdModule  = TQFP32;
+EndCmp
+
+BeginCmp
+TimeStamp = /5274DC32;
+Reference = P1;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5274E89C;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526455A4;
+Reference = RSMP0;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264562F;
+Reference = RSMP1;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264565C;
+Reference = RSMP2;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264545B;
+Reference = RX0;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454D4;
+Reference = RX1;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454D5;
+Reference = RX2;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454C8;
+Reference = RX3;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264547A;
+Reference = RY0;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /52645631;
+Reference = RY1;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /5264565A;
+Reference = RY2;
+ValeurCmp = R;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /526453B4;
+Reference = X0PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454D3;
+Reference = X1PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454D6;
+Reference = X2PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /526454C9;
+Reference = X3PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /526453C1;
+Reference = Y0PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /52645632;
+Reference = Y1PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+BeginCmp
+TimeStamp = /52645659;
+Reference = Y2PAD1;
+ValeurCmp = CONN_1;
+IdModule  = pad;
+EndCmp
+
+EndListe

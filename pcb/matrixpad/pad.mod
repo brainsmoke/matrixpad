@@ -1,0 +1,24 @@
+PCBNEW-LibModule-V1  Thu 24 Oct 2013 03:37:19 PM CEST
+# encoding utf-8
+$INDEX
+pad
+$EndINDEX
+$MODULE pad
+Po 0 0 0 15 52692281 52692273 ~~
+Li pad
+Cd module 1 pin (ou trou mecanique de percage)
+Kw DEV
+Sc 52692273
+AR /526453B4
+Op 0 0 0
+T0 0 -1378 400 400 0 100 N I 21 N "X0PAD1"
+T1 98 1476 400 400 0 100 N I 21 N "CONN_1"
+$PAD
+Sh "1" C 80 80 0 0 0
+Dr 0 0 0
+At SMD N 00A88000
+Ne 1 "N-000002"
+Po 0 0
+$EndPAD
+$EndMODULE  pad
+$EndLIBRARY
