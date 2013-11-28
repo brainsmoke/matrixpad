@@ -199,7 +199,6 @@ void init_ports(void)
 void init_analog_comparator(void)
 {
 	ACSR = 0x00;
-	ADCSRB = 0x00;
 	ADCSRB = (1<<ACME);
 	ADCSRA &= ~(1<<ADEN);
 	DIDR1 = (1<<AIN0D);
@@ -249,7 +248,7 @@ uint16_t measure(uint8_t x, uint8_t y)
 uint16_t baseline[Y_LINES][X_LINES];
 uint8_t  pressed[Y_LINES][X_LINES];
 
-void calbrate(void)
+void calibrate(void)
 {
 	uint8_t i, x, y;
 
@@ -273,7 +272,7 @@ int main(void)
 	uint16_t v;
 
 	serial_init(51);
-	calbrate();
+	calibrate();
 
 	for(;;)
 	{
@@ -287,7 +286,7 @@ int main(void)
 				uint16_t *b = &baseline[y][x];
 				uint8_t *p = &pressed[y][x];
 
-				if (*p && v < (*b>>4)-(*b>>9))
+				if (*p && v < (*b>>4)-(*b>>10))
 				{
 					if (*p > 100)
 					{
@@ -297,9 +296,8 @@ int main(void)
 					else
 						*p += 1;
 				}
-				else if (*p == 0 && v < (*b>>4)-(*b>>8) )
+				else if (*p == 0 && v < (*b>>4)-(*b>>9) )
 				{
-					touch_callback(x, y);
 					*p += 1;
 				}
 				else
@@ -308,6 +306,9 @@ int main(void)
 					*b -= *b>>4;
 					*b += v;
 				}
+
+				if (*p == 2)
+					touch_callback(x, y);
 			}
 //		serial_nl();
 	}
