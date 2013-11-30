@@ -24,7 +24,7 @@
  * (http://opensource.org/licenses/mit-license.html)
  */
 
-#define DEBUG 0
+#define DEBUG
 
 #define F_CPU (8000000u)
 
@@ -32,6 +32,7 @@
 #define IO_CLEAR(P) asm volatile("out %0, r1\n\t" : : "I" (_SFR_IO_ADDR(P))); 
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <avr/sleep.h>
 #include <util/delay_basic.h>
 #include <stdint.h>
@@ -42,7 +43,7 @@ void serial_init(int rate)
 	UBRR0H = (rate>>8);
 
 	UCSR0C=(1<<UCSZ01)|(1<<UCSZ00);
-	UCSR0B=/*(1<<RXEN0)|*/(1<<TXEN0);
+	UCSR0B=(1<<RXEN0)|(1<<TXEN0);
 }
 
 void serial_write(unsigned char c)
@@ -51,18 +52,41 @@ void serial_write(unsigned char c)
 	UDR0=c;
 }
 
-/*
+#define SERIAL_AVAILABLE (UCSR0A & (1<<RXC0))
+
 unsigned char serial_read(void)
 {
 	while ( !(UCSR0A & (1<<RXC0)) );
 	return UDR0;
 }
-*/
 
 
 #ifdef DEBUG
 
 const static char *hex = "0123456789abcdef";
+
+const static char *debug_command="debug";
+static uint8_t debug_i=0, debug_on=0;
+
+void debug_poll(void)
+{
+	if ( !SERIAL_AVAILABLE )
+		return;
+
+	uint8_t c = serial_read();
+
+	if (c == debug_command[debug_i])
+	{
+		debug_i++;
+		if (debug_command[debug_i] == '\0')
+		{
+			debug_on = !debug_on;
+			debug_i = 0;
+		}
+	}
+	else
+		debug_i = 0;
+}
 
 void serial_write_uint(uint16_t n)
 {
@@ -201,11 +225,25 @@ void init_analog_comparator(void)
 	ACSR = 0x00;
 	ADCSRB = (1<<ACME);
 	ADCSRA &= ~(1<<ADEN);
-	DIDR1 = (1<<AIN0D);
+	ACSR = 1<<ACIC;
+	TCCR1A = 0;
+	TCCR1C = 0x00;
+	TCCR1B = (1<<ICNC1) | (0 /* stop */);
+	sei();
+}
+
+static uint16_t loop=0;
+
+ISR(TIMER1_CAPT_vect) /* chip sets ICR1 on capture */
+{
+	TIMSK1 = 0; /* disable interrupt */
+	loop = 0;
 }
 
 uint16_t measure(uint8_t x, uint8_t y)
 {
+	loop = 1;
+	TCNT1 = 0;
 	{
 		register uint8_t x_on  = x_port[x][ON],
 		                 x_off = x_port[x][OFF],
@@ -226,43 +264,48 @@ uint16_t measure(uint8_t x, uint8_t y)
 			__builtin_avr_delay_cycles(DELAY_CYCLES);
 		}
 	}
-
 	DDR_X = 0;
-	uint16_t c=0;
 	ADMUX = y_mux[y];
 	ADCSRB = (1<<ACME);
+	TCCR1B = (1<<ICNC1) | (1 /* clock select prescaler 1 */ );
+	TIFR1 = 1<<ICF1;         /* clear(!) flag */
+	TIMSK1 = 1<<ICIE1;
 	IO_OUT(PORT_SMP, SMP);
 	IO_OUT(DDR_SMP, SMP);
 
-	while ( (ACSR & (1<<ACO)) )
-		c++;
+	while ( loop );
+
+	TCCR1B = (1<<ICNC1) | (0 /* stop */);
 
 	PORT_SMP = 0;
 	DDR_SMP = 0;
 	ADCSRB = 0;
 	DDR_X = XMASK;  /* drive the X lines by default to reduce noise */
 
-	return c;
+	return ICR1;
 }
 
-uint16_t baseline[Y_LINES][X_LINES];
-uint8_t  pressed[Y_LINES][X_LINES];
+uint16_t baseline[Y_LINES*X_LINES];
+uint8_t  pressed[Y_LINES*X_LINES];
 
 void calibrate(void)
 {
 	uint8_t i, x, y;
 
-	for(y=0; y<Y_LINES; y++)
-		for(x=0; x<X_LINES; x++)
-		{
-			baseline[y][x] = 0;
-			pressed[y][x] = 0;
-		}
+	uint16_t *b = baseline;
+	uint8_t  *p = pressed;
+
+	for(i=0; i<Y_LINES*X_LINES; i++)
+		*b++ = *p++ = 0;
 
 	for (i=0; i<16; i++)
+	{
+		b = baseline;
 		for(y=0; y<Y_LINES; y++)
 			for(x=0; x<X_LINES; x++)
-				baseline[y][x] += measure(x, y);
+				*b++ += measure(x, y);
+
+	}
 }
 
 
@@ -272,20 +315,30 @@ int main(void)
 	uint16_t v;
 
 	serial_init(51);
+	init_ports();
+	init_analog_comparator();
 	calibrate();
 
 	for(;;)
 	{
+#ifdef DEBUG
+		debug_poll();
+#endif
+		uint16_t *b = baseline;
+		uint8_t *p = pressed;
+
 		for(y=0; y<Y_LINES; y++)
 			for(x=0; x<X_LINES; x++)
 			{
 				v = measure(x, y);
-//serial_write(map[(y<<2)+x]);
-//serial_write_uint(v);
-//serial_write_uint(baseline[y][x]);
-				uint16_t *b = &baseline[y][x];
-				uint8_t *p = &pressed[y][x];
-
+#ifdef DEBUG
+				if (debug_on)
+				{
+					serial_write(map[(y<<2)+x]);
+					serial_write_uint(v);
+					serial_write_uint(*b);
+				}
+#endif
 				if (*p && v < (*b>>4)-(*b>>10))
 				{
 					if (*p > 100)
@@ -309,8 +362,14 @@ int main(void)
 
 				if (*p == 2)
 					touch_callback(x, y);
+
+				b++;
+				p++;
 			}
-//		serial_nl();
+#ifdef DEBUG
+		if (debug_on)
+			serial_nl();
+#endif
 	}
 }
 
