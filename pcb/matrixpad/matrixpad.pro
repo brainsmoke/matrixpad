@@ -1,4 +1,4 @@
-update=Sat 02 Nov 2013 03:53:33 PM CET
+update=Mon 02 Dec 2013 11:08:06 PM CET
 version=1
 last_client=pcbnew
 [eeschema]
@@ -105,3 +105,4 @@ LibName13=matrixpad
 LibName14=drill
 LibName15=matrixpad-desc
 LibName16=SM0603_nosilk
+LibName17=matrixpad-design
