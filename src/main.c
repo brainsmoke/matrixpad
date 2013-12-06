@@ -75,6 +75,9 @@ void debug_poll(void)
 
 	uint8_t c = serial_read();
 
+	if (c != debug_command[debug_i])
+		debug_i = 0;
+
 	if (c == debug_command[debug_i])
 	{
 		debug_i++;
@@ -84,8 +87,6 @@ void debug_poll(void)
 			debug_i = 0;
 		}
 	}
-	else
-		debug_i = 0;
 }
 
 void serial_write_uint(uint16_t n)
