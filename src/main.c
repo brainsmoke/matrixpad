@@ -184,6 +184,15 @@ void touch_callback(uint8_t x, uint8_t y)
 #define X_LINES 4
 #define Y_LINES 3
 
+/* from no signal -> signal */
+#define SIGNAL_THRESHOLD(baseline_x_16) ( ((baseline_x_16)>>4)-((baseline_x_16)>>9) )
+
+/* from signal -> no signal, differs from SIGNAL_THRESHOLD to prevent oscillation */
+#define NO_SIGNAL_THRESHOLD(baseline_x_16) ( ((baseline_x_16)>>4)-((baseline_x_16)>>10) )
+
+#define SUSTAINED_SIGNAL_COUNT (2)
+#define BASELINE_AVG(baseline_x_16) (baseline_x_16>>4)
+
 enum { OFF, ON };
 
 const uint8_t x_port[X_LINES][2] =
@@ -285,7 +294,7 @@ uint16_t measure(uint8_t x, uint8_t y)
 	return ICR1;
 }
 
-uint16_t baseline[Y_LINES*X_LINES];
+uint16_t baseline[Y_LINES*X_LINES]; /* +/- 16x avg no-signal baseline */
 uint8_t  pressed[Y_LINES*X_LINES];
 
 void calibrate(void)
@@ -339,28 +348,24 @@ int main(void)
 					serial_write_uint(*b);
 				}
 #endif
-				if (*p && v < (*b>>4)-(*b>>10))
+				if (*p && v < NO_SIGNAL_THRESHOLD(*b))
 				{
 					if (*p > 100)
-					{
-						*b -= *b>>4;
-						*b += v;
-					}
+						*b += v - BASELINE_AVG(*b);
 					else
 						*p += 1;
 				}
-				else if (*p == 0 && v < (*b>>4)-(*b>>9) )
+				else if (*p == 0 && v < SIGNAL_THRESHOLD(*b) )
 				{
 					*p += 1;
 				}
 				else
 				{
 					*p = 0;
-					*b -= *b>>4;
-					*b += v;
+					*b += v - BASELINE_AVG(*b);
 				}
 
-				if (*p == 2)
+				if (*p == SUSTAINED_SIGNAL_COUNT)
 					touch_callback(x, y);
 
 				b++;
