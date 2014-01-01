@@ -10,7 +10,7 @@
 TARGET_ARCH	= -mmcu=atmega328p
 OBJECTS		= main.o
 FLASH_CMD	= avrdude -v -c usbtiny -pm328p -U flash:w:main.hex 
-FUSES_CMD	= avrdude -v -c usbtiny -pm328p -U lfuse:w:0xe2:m -U hfuse:w:0xd9:m -U efuse:w:0xff:m
+FUSES_CMD	= avrdude -v -c usbtiny -pm328p -U lfuse:w:0xe2:m -U hfuse:w:0xd9:m -U efuse:w:0x07:m
 STACK		= 32
 FLASH		= 262144
 SRAM		= 2048
