@@ -1,16 +1,16 @@
-Cmp-Mod V01 Genere par PcbNew le Sat 02 Nov 2013 03:54:22 PM CET
+Cmp-Mod V01 Created by CvPcb (2013-dec-23)-stable date = Sun 29 Jun 2014 08:17:33 PM CEST
 
 BeginCmp
 TimeStamp = /5274E83B;
 Reference = C1;
-ValeurCmp = C;
+ValeurCmp = 1uF;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5274E843;
 Reference = C2;
-ValeurCmp = C;
+ValeurCmp = 100nF;
 IdModule  = SM0603_nosilk;
 EndCmp
 
@@ -18,27 +18,34 @@ BeginCmp
 TimeStamp = /526D06EF;
 Reference = CON1;
 ValeurCmp = AVR-ISP-6;
-IdModule  = pin_array_3x2;
+IdModule  = smd_pin_array_3x2;
 EndCmp
 
 BeginCmp
 TimeStamp = /52645565;
 Reference = Cs0;
-ValeurCmp = C;
+ValeurCmp = 4.7nF;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /52645630;
 Reference = Cs1;
-ValeurCmp = C;
+ValeurCmp = 4.7nF;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264565B;
 Reference = Cs2;
-ValeurCmp = C;
+ValeurCmp = 4.7nF;
+IdModule  = SM0603_nosilk;
+EndCmp
+
+BeginCmp
+TimeStamp = /53B04E4B;
+Reference = FB1;
+ValeurCmp = FILTER;
 IdModule  = SM0603_nosilk;
 EndCmp
 
@@ -46,7 +53,7 @@ BeginCmp
 TimeStamp = /52644BAB;
 Reference = IC1;
 ValeurCmp = ATMEGA328P-A;
-IdModule  = TQFP32;
+IdModule  = TQFP32_custom;
 EndCmp
 
 BeginCmp
@@ -59,77 +66,77 @@ EndCmp
 BeginCmp
 TimeStamp = /5274E89C;
 Reference = R1;
-ValeurCmp = R;
+ValeurCmp = 10K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /526455A4;
 Reference = RSMP0;
-ValeurCmp = R;
+ValeurCmp = 470K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264562F;
 Reference = RSMP1;
-ValeurCmp = R;
+ValeurCmp = 470K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264565C;
 Reference = RSMP2;
-ValeurCmp = R;
+ValeurCmp = 470K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264545B;
 Reference = RX0;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /526454D4;
 Reference = RX1;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /526454D5;
 Reference = RX2;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /526454C8;
 Reference = RX3;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264547A;
 Reference = RY0;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /52645631;
 Reference = RY1;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 
 BeginCmp
 TimeStamp = /5264565A;
 Reference = RY2;
-ValeurCmp = R;
+ValeurCmp = 4.7K;
 IdModule  = SM0603_nosilk;
 EndCmp
 

@@ -1,6 +1,6 @@
-update=Mon 02 Dec 2013 11:08:06 PM CET
+update=Sun 29 Jun 2014 08:11:41 PM CEST
 version=1
-last_client=pcbnew
+last_client=cvpcb
 [eeschema]
 version=1
 LibDir=
@@ -65,11 +65,6 @@ LibName29=contrib
 LibName30=valves
 [general]
 version=1
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
 [pcbnew]
 version=1
 PadDrlX=0
@@ -88,7 +83,6 @@ TxtLar=120
 MSegLar=150
 LastNetListRead=matrixpad.net
 [pcbnew/libraries]
-LibDir=
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -106,3 +100,11 @@ LibName14=drill
 LibName15=matrixpad-desc
 LibName16=SM0603_nosilk
 LibName17=matrixpad-design
+LibName18=smd_avr_isp
+LibName19=TQFP32_custom
+LibDir=
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
