@@ -1,14 +1,14 @@
 
-== Capacitive Touch Matrix Numpad For an Atmega328p ==
+# Capacitive Touch Matrix Numpad For an Atmega328p 
 
 ![photo of matrixpad PCB](pics/pcb.jpg)
 
-== Files ==
+## Files
 
 - src/*        source code
 - pcb/*        board & schematics
 
-== Technical Background ==
+## Technical Background
 
 - Excellent technical description by Viacheslav Slavinsky:
 
@@ -18,7 +18,7 @@
 
   http://ww1.microchip.com/downloads/en/DeviceDoc/qmatrix_white_paper_100.pdf
 
-== PCB Design guidelines ==
+## PCB Design guidelines
 
 - Moisture Tolerant QTouch Design:
 
